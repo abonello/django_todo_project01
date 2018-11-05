@@ -39,3 +39,18 @@ python manage.py runserver
 ```
 
 Installation worked, everything is great and we are good to go.
+
+Setting up the admin area by migrating the database that comes as standard.
+
+```
+python manage.py migrate
+```
+
+Now we can see the login screen for the django admin. We need a superuser.
+```
+python manage.py createsuperuser
+```
+### user: admin  
+### password: 123pass456
+
+Log into the admin area using the above credentials.
