@@ -9,6 +9,7 @@ Using:
 virtualenv venv -p python3
 source venv/bin/activate
 git init
+pip freeze > Requirements.txt
 ```
 
 versions:
@@ -21,3 +22,5 @@ setuptools 40.5.0
 wheel      0.32.2
 ```
 ---
+
+
