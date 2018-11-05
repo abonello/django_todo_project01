@@ -33,3 +33,9 @@ Create the app
 django-admin.py startproject todo_app .
 ```
 
+Runserver to test the app is set up correctly
+```
+python manage.py runserver
+```
+
+Installation worked, everything is great and we are good to go.
