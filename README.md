@@ -59,3 +59,5 @@ Log into the admin area using the above credentials.
 ```
 python manage.py startapp todo_list
 ```
+
+Register the todo_list app within our project todo_app. Open settings.py and add the todo_list app to the INSTALLED_APPS list 
