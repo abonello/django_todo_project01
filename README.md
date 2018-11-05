@@ -23,4 +23,13 @@ wheel      0.32.2
 ```
 ---
 
+Create folder to hold our app
+```
+mkdir my_app
+```
+
+Create the app
+```
+django-admin.py startproject todo_app .
+```
 
