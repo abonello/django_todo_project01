@@ -54,3 +54,8 @@ python manage.py createsuperuser
 ### password: 123pass456
 
 Log into the admin area using the above credentials.
+
+## Start building the app
+```
+python manage.py startapp todo_list
+```
