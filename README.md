@@ -606,7 +606,12 @@ Now we can take information that is submitted through our form and manipulate it
 We need to prepare the navbar inside `base.html`. 
 1. Find the form within the navbar code. Change the form's method to **POST**.
 2. Add a cross-site request forgery token `{% csrf_token %}`
-3. Add `name="item"`. This binds the input box with the item field of the model.
+3. Add `name="item"` to the input element. This binds the input box with the item field of the model.
 
 ---
+
+Prepare the home view to deal with POST requests.
+
+```python
+if request.method == 'POST':
 

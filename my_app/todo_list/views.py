@@ -3,10 +3,18 @@ from .models import List
 from .forms import ListForm
 
 def home(request):
+    if request.method == 'POST':
+        form = ListForm(request.POST or None)
 
-    all_items = List.objects.all
-
-    return render(request, 'home.html', {'todo_items': all_items})
+        if form.is_valid():
+            form.save()
+        else:
+            pass
+        all_items = List.objects.all
+        return render(request, 'home.html', {'todo_items': all_items})
+    else: 
+        all_items = List.objects.all
+        return render(request, 'home.html', {'todo_items': all_items})
 
 def about(request):
     my_name = "Anthony Bonello"
