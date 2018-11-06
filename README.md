@@ -103,3 +103,8 @@ def home(request):
 ```
 
 ___
+
+## Create a template for our home route.
+
+Creatte a `templates` folder inside the todo_list folder. Create a `home.html` file inside this new folder.
+
