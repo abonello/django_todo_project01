@@ -150,3 +150,7 @@ Place some stub code.
 
 Create a `base.html` file in the templates folder.
 It uses jinja which allows us to use python-like code.
+
+Connect base.html to home and about templates.
+
+---
