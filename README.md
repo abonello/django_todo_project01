@@ -579,3 +579,34 @@ Defining a path like this will make it computer agnostic. It does not matter wha
 ```jinja
 {% load static %}
 ```
+---
+
+## Enable the add item functionality
+
+We need to turn the bootstrap add item form into a django form and register it with our app.
+
+Create a `forms.py` file inside the todo_list app folder. It need to access our List model as well as django's forms.
+
+forms.py
+```python
+from django import forms
+from .models import List
+
+class ListForm(forms.ModelForm):
+    class Meta:
+        model = List
+        fields = ["item", "completed"]
+```
+
+Basically this is describing the model of our List class (the database).  
+We can access ListForm by calling it within our views. For this to work we need to import this form into our `views.py`.
+
+Now we can take information that is submitted through our form and manipulate it inside our view functions.
+
+We need to prepare the navbar inside `base.html`. 
+1. Find the form within the navbar code. Change the form's method to **POST**.
+2. Add a cross-site request forgery token `{% csrf_token %}`
+3. Add `name="item"`. This binds the input box with the item field of the model.
+
+---
+
