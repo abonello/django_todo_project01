@@ -613,5 +613,20 @@ We need to prepare the navbar inside `base.html`.
 Prepare the home view to deal with POST requests.
 
 ```python
-if request.method == 'POST':
+def home(request):
+    if request.method == 'POST':
+        form = ListForm(request.POST or None)
+
+        if form.is_valid():
+            form.save()
+        else:
+            pass
+        all_items = List.objects.all
+        return render(request, 'home.html', {'todo_items': all_items})
+    else: 
+        all_items = List.objects.all
+        return render(request, 'home.html', {'todo_items': all_items})
+```
+---
+
 
