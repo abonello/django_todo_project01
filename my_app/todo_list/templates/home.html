@@ -3,55 +3,30 @@
 {% block title %}To-Do List App{% endblock %}
 
 {% block content %}
-    <h3>All objects</h3>
-    {{ todo_items }}
-    <br>
-    <hr>
-    <br>
-    <h3>Items as defined by __str__</h3>
-    {% if todo_items %}
-        <ul>
-            {% for item in todo_items %}
-                <li>{{ item }}</li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>No items to display.</p>
-    {% endif %}
-    <br>
-    <hr>
-    <br>
-    <h3>List of the item</h3>
-    <p>Access the item directly</p>
-    {% if todo_items %}
-    <ul>
-        {% for item in todo_items %}
-        <li>{{ item.item }}</li>
-        {% endfor %}
-    </ul>
-    {% else %}
-    <p>No items to display.</p>
-    {% endif %}
-
-    <br>
-    <hr>
     <br>
     <h3>Display in a table</h3>
     {% if todo_items %}
-    <table class="table">
-        <thead>
-            <th>Item</th>
-            <th>Completed</th>
-        </thead>
-        {% for item in todo_items %}
-        <tr>
-            <td>{{ item.item }}</td>
-            <td>{{ item.completed }}</td>
-        </tr>
-        
-        {% endfor %}
-    </table>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <th>Item</th>
+                <th><center>Completed</center></th>
+                <th><center>Delete</center></th>
+            </thead>
+            {% for item in todo_items %}
+
+            {% if item.completed %}
+                <tr class="table-secondary">
+            {% else %}
+                <tr>
+            {% endif %}
+                <td>{{ item.item }}</td>
+                <td><center>{{ item.completed }}</center></td>
+                <td><center>Delete</center></td>
+            </tr>
+            
+            {% endfor %}
+        </table>
     {% else %}
-    <p>No items to display.</p>
+        <p>No items to display.</p>
     {% endif %}
 {% endblock %}

@@ -502,6 +502,41 @@ There are various ways how we can display this data.
 
 ___
 
+## Decide on a layout and improve data display
+
+We will use a table display. We will add a third column for Delete. This will be turned into a delete button later on. Add some bootstrap classes to improve layout and style.
+
+If an item has been completed we want it to be styled differently. We will use `table-secondary` class which gives it a light grey background.
+
+This is the code we have now:
+```jinja
+{% if todo_items %}
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <th>Item</th>
+                <th><center>Completed</center></th>
+                <th><center>Delete</center></th>
+            </thead>
+            {% for item in todo_items %}
+
+            {% if item.completed %}
+                <tr class="table-secondary">
+            {% else %}
+                <tr>
+            {% endif %}
+                <td>{{ item.item }}</td>
+                <td><center>{{ item.completed }}</center></td>
+                <td><center>Delete</center></td>
+            </tr>
+            
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No items to display.</p>
+    {% endif %}
+```
+
+---
 
 
 
