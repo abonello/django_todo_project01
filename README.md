@@ -108,3 +108,18 @@ ___
 
 Creatte a `templates` folder inside the todo_list folder. Create a `home.html` file inside this new folder.
 
+___
+
+## Create the url
+
+In this app's urls.py create a path that points to our view.
+
+```python
+path('', views.home, name='home'),
+```
+
+The name allows us to dynamically create links. We can reference these url patterns by name. The pattern is the first parameter.
+
+___
+
+
