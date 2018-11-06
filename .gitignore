@@ -1,1 +1,4 @@
 /venv
+/my_app/todo_app/__pycache__
+/my_app/todo_list/__pycache__
+/my_app/todo_list/migrations/__pycache__

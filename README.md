@@ -61,3 +61,21 @@ python manage.py startapp todo_list
 ```
 
 Register the todo_list app within our project todo_app. Open settings.py and add the todo_list app to the INSTALLED_APPS list 
+
+---
+
+## Start setting up the routing
+
+Create a urls.py in our todo_list app.  
+remove references to the admin in this newly created file.  
+
+In the project's urls.py add include, and from the todo_list app import views. Then include the app's urls.py inside the project's urls.py
+```python
+from django.urls import path, include
+from todo_list import views
+
+urlpatterns = [
+    . . .
+    path('', include('todo_list.urls')),
+]
+```
