@@ -401,3 +401,19 @@ Running migrations:
 The database is ready to use.
 
 ---
+
+## Add database to the admin section
+
+Use the `admin.py` file and register our model. Start by importing our model `List` from `models.py`. 
+```python
+from .models import List
+```
+
+Next register it on the actual page. Pass in the name of the class to `admin.site.register`.
+
+```python
+admin.site.register(List)
+```
+---
+
+
