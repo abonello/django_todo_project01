@@ -258,4 +258,26 @@ Adding a bootstrap navbar. Copy the code from bootstrap page and paste it in the
 5. Remove the Home link.
 6. Change Brand from Navbar to **To-Do List**. hard-code link to root.
 
+
+### **Problem**: if we click on about link twice, we end up with a url of /about/about/ which will cause an error.
+
+---
+
+## Django dynamic links
+
+Django links are better because they update dynamically.
+
+We use jinja templating with `url` and the name of the view we used in `urls.py`.
+```html
+<a class="nav-link" href="{% url 'about' %}">About</a>
+```
+
+### **Bug Solved**: Now the error we had before disappears.
+
+Do the same for the home link used with the brand name.
+```html
+<a class="navbar-brand" href="{% url 'home' %}">To-Do List</a>
+```
+
+Using dynamic links allows us to change the path of links without having to change the html code. Just change the path in the urls.py and leave the name as is.
 ---
