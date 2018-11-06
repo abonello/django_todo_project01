@@ -416,4 +416,93 @@ admin.site.register(List)
 ```
 ---
 
+## Conncet the database to the index page
+
+1. Access the database from the `views.py` file. Import our **List** database model from `models.py`.
+
+```python
+from .models import List
+```
+
+Then pull out the data from the database and store it in a variable which can be passed into the context dictionary.
+
+Data that are stored in a database are objects. We want all objects. Then pass it into the context dictionary.
+```python
+all_items = List.objects.all
+
+return render(request, 'home.html', {'todo_items': all_items})
+```
+
+2. In the `home.html` template call the data in the context dictionary.
+
+```html
+{{ todo_items }}
+```
+This will give us:  
+<QuerySet [<List: Finish this course | False>, <List: Feed the fish | False>, <List: See a video | True>]>
+
+This can be improved by accessing each individual item by creating a loop.
+
+There are various ways how we can display this data.
+```html
+{% block content %}
+    <h3>All objects</h3>
+    {{ todo_items }}
+    <br>
+    <hr>
+    <br>
+    <h3>Items as defined by __str__</h3>
+    {% if todo_items %}
+        <ul>
+            {% for item in todo_items %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No items to display.</p>
+    {% endif %}
+    <br>
+    <hr>
+    <br>
+    <h3>List of the item</h3>
+    <p>Access the item directly</p>
+    {% if todo_items %}
+    <ul>
+        {% for item in todo_items %}
+        <li>{{ item.item }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No items to display.</p>
+    {% endif %}
+
+    <br>
+    <hr>
+    <br>
+    <h3>Display in a table</h3>
+    {% if todo_items %}
+    <table class="table">
+        <thead>
+            <th>Item</th>
+            <th>Completed</th>
+        </thead>
+        {% for item in todo_items %}
+        <tr>
+            <td>{{ item.item }}</td>
+            <td>{{ item.completed }}</td>
+        </tr>
+        
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No items to display.</p>
+    {% endif %}
+{% endblock %}
+```
+
+___
+
+
+
+
 
