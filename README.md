@@ -538,6 +538,44 @@ This is the code we have now:
 
 ---
 
+## Cross out completed items
+
+We will use custom css to cross out completed items
 
 
+1. In the top level directory of our project create a `static` directory. 
 
+2. Inside the static directory create three new directories:
+    1. css
+    2. js
+    3. images
+
+3. Create a new file inside the css folder called `styles.css`.
+
+4. We need to register the static directory in the `todo_app/settings.py`. Below the 
+`STATIC_URL = '/static/'` entry add the following:
+    ```python
+    STATICFILES_DIRS = [
+        os.path.join(BASE_DIR, 'static'),
+    ]
+    ```
+
+Defining a path like this will make it computer agnostic. It does not matter what operating system you are using.
+
+5. Create a style in our `style.css` file:
+    ```css
+    .striker {
+        text-decoration: line-through;
+    }
+    ```
+
+6. Link this css to our `base.html`.
+    ```jinja
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    ```
+
+7. We need to give `base.html` the ability to load our static files. This is done by adding the following code at the very top of it.
+
+```jinja
+{% load static %}
+```

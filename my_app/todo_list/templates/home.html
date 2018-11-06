@@ -16,10 +16,11 @@
 
             {% if item.completed %}
                 <tr class="table-secondary">
+                <td class="striker">{{ item.item }}</td>
             {% else %}
                 <tr>
-            {% endif %}
                 <td>{{ item.item }}</td>
+            {% endif %}
                 <td><center>{{ item.completed }}</center></td>
                 <td><center>Delete</center></td>
             </tr>
