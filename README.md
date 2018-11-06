@@ -209,7 +209,7 @@ NB. We can pass a different title for each page that will replace a default text
 Adding a bootstrap navbar. Copy the code from bootstrap page and paste it in the `base.html`. We will change the style to `navbar-dark bg-dark`. Change the color of the button from *btn-outline-success* to `btn-outline-secondary`. 
 
 ```html
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -240,8 +240,22 @@ Adding a bootstrap navbar. Copy the code from bootstrap page and paste it in the
     </ul>
     <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-secondary my-2 my-sm-0" type="submit">Search</button>
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
 </nav>
 ```
+
+---
+## Start changing the navbar
+
+1. Change button text to **Add To List**.  
+2. Change input placeholder to **To-Do Item**.  
+3. Remove nav things we do not need.
+    * Remove the Delete item
+    * Remove the Dropdown item
+4. Change the Link to **About**. For now use hard-coded href.
+5. Remove the Home link.
+6. Change Brand from Navbar to **To-Do List**. hard-code link to root.
+
+---
