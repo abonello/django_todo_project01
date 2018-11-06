@@ -145,3 +145,8 @@ Place some stub code.
 **NB: We will not be using this route in this project. Keep it for reference. I might extend the project later.**
 
 ---
+
+## Templates and extending a Base template
+
+Create a `base.html` file in the templates folder.
+It uses jinja which allows us to use python-like code.
