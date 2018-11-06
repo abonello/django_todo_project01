@@ -194,3 +194,12 @@ Insert the block section in the body and wrap it in a div with class="container"
     {% endblock %}
 </div>
 ```
+
+---
+## Dynamically change title of pages
+
+Add a block title in the header of the page within the title tags.
+
+NB. We can pass a different title for each page that will replace a default text defined in the base.
+
+---
