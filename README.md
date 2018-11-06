@@ -280,4 +280,37 @@ Do the same for the home link used with the brand name.
 ```
 
 Using dynamic links allows us to change the path of links without having to change the html code. Just change the path in the urls.py and leave the name as is.
+
+---
+
+## Context Dictionary
+
+Example:
+
+In the views.py
+```python
+def about(request):
+    my_name = "Anthony Bonello"
+    number = 2 + 2
+    return render(request, 'about.html', {'name': my_name, 'number': number})
+```
+Then in the about.html page:
+```html
+{% block content %}
+    <h1>This is the About Me page.</h1>
+    <p>My name is {{ name }}.</p>
+    <p>I am {{ number }} years old.</p>
+{% endblock %}
+```
+
+If we want to pass on lots of key-value pairs we can create a dictionary which is conventionally called context which will hold all the data to be passed to the front end and just pass the context dictionary.
+
+```python
+def about(request):
+    my_name = "Anthony Bonello"
+    number = 2 + 2
+    context = {'name': my_name, 'number': number}
+    return render(request, 'about.html', context)
+```
+
 ---
