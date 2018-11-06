@@ -79,3 +79,15 @@ urlpatterns = [
     path('', include('todo_list.urls')),
 ]
 ```
+
+---
+## views.py file
+
+The `urls.py` tells us **WHERE** our pages are.  
+The `views.py` allows us to define **WHAT** our pages are.  
+
+Import the views into this app's urls.py
+
+```
+from . import views
+```
