@@ -122,4 +122,26 @@ The name allows us to dynamically create links. We can reference these url patte
 
 ___
 
+## Creating a new page (About)
 
+1. views.py - define route
+
+```python
+def about(request):
+    return render(request, 'about.html', {})
+```
+
+2. urls.py - add url
+```python
+path('about/', views.about, name='about'),
+```
+
+3. Create new template - in templates folder create `about.html`.  
+Place some stub code.
+```html
+<h1>This is the About Me page.</h1>
+```
+
+**NB: We will not be using this route in this project. Keep it for reference. I might extend the project later.**
+
+---
