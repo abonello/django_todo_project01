@@ -91,3 +91,15 @@ Import the views into this app's urls.py
 ```
 from . import views
 ```
+---
+
+## Create the first view
+
+Create a python function. We will call this view *home*. We need to pass in a request. This is anytime a web browser calls a web page. We will point this view to render the `home.html` template. The template is where the actual code for this page is going to be. We also need to pass in a dictionary which allows us to pass in data to our page.
+
+```python
+def home(request):
+    return render(request, 'home.html', {})
+```
+
+___
