@@ -663,4 +663,32 @@ Then add the following code inside the alert div.
 ```
 ---
 
+## Enable item delete button
+
+1. Add a new path to the `todo_list/urls.py`. this is called `delete` and pass it the id of the item to be deleted. It will point to a new `delete` function in `views.py`. We can call this new path **delete**.
+```python
+path('delete/<item_id>', views.delete, name='delete'),
+```
+
+The new view is:
+```python
+def delete(request, item_id):
+    item = List.objects.get(pk=item_id)
+    item.delete()
+    messages.success(request, ('Item has been deleted, obliterated completely and permanently from the list.'))
+    return redirect('home')
+```
+
+For redirect to work we need to add an import:
+```python
+from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
+```
+
+Next, enable the **delete** link in `home.html`.
+Wrap the delete text with an anchor tag pointing to the delete view and passing the id of the item to be deleted.
+```jinja
+<td><center><a href="{% url 'delete' item.id %}">Delete</a></center></td>
+```
+---
 
