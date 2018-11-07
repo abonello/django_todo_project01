@@ -730,4 +730,23 @@ The html code in home.html
 <td><center><a class="btn btn-warning" href="{% url 'cross_off' item.id %}">Cross Off</a></center></td>
 ```
 ---
+## Enable uncrossing an item that has been marked as completed.
 
+In urls.py add a new path.
+```python
+path('uncross/<item_id>', views.uncross, name='uncross'),
+```
+Then create the view
+```python
+def uncross(request, item_id):
+    item = List.objects.get(pk=item_id)
+    item.completed = False
+    item.save()
+    messages.success(request, ('Item has been marked as not completed.'))
+    return redirect('home')
+```
+The html code in home.html
+```jinja
+<td><center><a class="btn btn-warning" href="{% url 'cross_off' item.id %}">Cross Off</a></center></td>
+```
+---

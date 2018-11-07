@@ -37,3 +37,10 @@ def cross_off(request, item_id):
     item.save()
     messages.success(request, ('Item has been marked as completed.'))
     return redirect('home')
+
+def uncross(request, item_id):
+    item = List.objects.get(pk=item_id)
+    item.completed = False
+    item.save()
+    messages.success(request, ('Item has been marked as not completed.'))
+    return redirect('home')

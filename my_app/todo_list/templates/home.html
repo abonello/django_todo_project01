@@ -28,7 +28,7 @@
             {% if item.completed %}
                 <tr class="table-secondary">
                 <td class="striker">{{ item.item }}</td>
-                <td><center>Uncross</center></td>
+                <td><center><a class="btn btn-secondary" href="{% url 'uncross' item.id %}">Uncross</a></center></td>
             {% else %}
                 <tr>
                 <td>{{ item.item }}</td>
