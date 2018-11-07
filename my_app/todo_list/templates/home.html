@@ -4,7 +4,15 @@
 
 {% block content %}
     <br>
-    <h3>Display in a table</h3>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-warning" role="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+    
+    <br>
     {% if todo_items %}
         <table class="table table-bordered">
             <thead class="thead-dark">

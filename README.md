@@ -628,5 +628,26 @@ def home(request):
         return render(request, 'home.html', {'todo_items': all_items})
 ```
 ---
+## Flash a message 
 
+Pass on a message so that it flashes at the top of the screen any time we add something.
+
+Django has a messaging system. In order to use this, in `views.py` we import `messages`:
+```python
+from django.contrib import messages
+```
+Then we need to pass in a success message
+```python
+messages.success(request, ('Item has been successfully added to the list.'))
+```
+Lastly, we need to prepare `home.html` to display the message. We will place this right above the table. We will check if there is a message using an `if` statement and inside this we will run a loop in case there is more than one message.
+```jinja
+{% if messages %}
+    {% for message in messages %}
+        {{ message }}
+    {% endfor %}
+{% endif %}
+```
+
+We can style this message using bootstrap `alerts`.
 
