@@ -28,12 +28,14 @@
             {% if item.completed %}
                 <tr class="table-secondary">
                 <td class="striker">{{ item.item }}</td>
+                <td><center>Uncross</center></td>
             {% else %}
                 <tr>
                 <td>{{ item.item }}</td>
+                <td><center><a class="btn btn-warning" href="{% url 'cross_off' item.id %}">Cross Off</a></center></td>
             {% endif %}
-                <td><center>{{ item.completed }}</center></td>
-                <td><center><a class="btn btn-warning" href="{% url 'delete' item.id %}">Delete</a>
+                
+                <td><center><a class="btn btn-danger" href="{% url 'delete' item.id %}">Delete</a>
                     </center></td>
             </tr>
             

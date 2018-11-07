@@ -694,6 +694,40 @@ Wrap the delete text with an anchor tag pointing to the delete view and passing 
 
 Turn the delete links into proper buttons.
 ```jinja
-<td><center><a class="btn btn-warning" href="{% url 'delete' item.id %}">Delete</a></center></td>
+<td><center><a class="btn btn-danger" href="{% url 'delete' item.id %}">Delete</a></center></td>
 ```
 ---
+## Enable crossing-off a completed item
+
+We need to change the display (in `home.html`) to show Cross and Uncross for current and completed items respectively.
+```jinja
+{% if item.completed %}
+    <tr class="table-secondary">
+    <td class="striker">{{ item.item }}</td>
+    <td><center>Uncross</center></td>
+{% else %}
+    <tr>
+    <td>{{ item.item }}</td>
+    <td><center>Cross Off</center></td>
+{% endif %}
+```
+
+In urls.py add a new path.
+```python
+path('cross_off/<item_id>', views.cross_off, name='cross_off'),
+```
+Then create the view
+```python
+def cross_off(request, item_id):
+    item = List.objects.get(pk=item_id)
+    item.completed = True
+    item.save()
+    messages.success(request, ('Item has been marked as completed.'))
+    return redirect('home')
+```
+The html code in home.html
+```jinja
+<td><center><a class="btn btn-warning" href="{% url 'cross_off' item.id %}">Cross Off</a></center></td>
+```
+---
+

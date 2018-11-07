@@ -30,3 +30,10 @@ def delete(request, item_id):
     item.delete()
     messages.success(request, ('Item has been deleted, obliterated completely and permanently from the list.'))
     return redirect('home')
+
+def cross_off(request, item_id):
+    item = List.objects.get(pk=item_id)
+    item.completed = True
+    item.save()
+    messages.success(request, ('Item has been marked as completed.'))
+    return redirect('home')
