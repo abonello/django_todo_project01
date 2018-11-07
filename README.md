@@ -692,3 +692,8 @@ Wrap the delete text with an anchor tag pointing to the delete view and passing 
 ```
 ---
 
+Turn the delete links into proper buttons.
+```jinja
+<td><center><a class="btn btn-warning" href="{% url 'delete' item.id %}">Delete</a></center></td>
+```
+---

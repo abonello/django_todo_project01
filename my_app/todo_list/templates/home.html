@@ -33,7 +33,7 @@
                 <td>{{ item.item }}</td>
             {% endif %}
                 <td><center>{{ item.completed }}</center></td>
-                <td><center><a href="{% url 'delete' item.id %}">Delete</a>
+                <td><center><a class="btn btn-warning" href="{% url 'delete' item.id %}">Delete</a>
                     </center></td>
             </tr>
             
