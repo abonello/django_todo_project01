@@ -750,3 +750,6 @@ The html code in home.html
 <td><center><a class="btn btn-warning" href="{% url 'cross_off' item.id %}">Cross Off</a></center></td>
 ```
 ---
+
+Added code that will change the **Delete**, **Cross Off** and **Uncross** text to symbols for very small screens. This allows screens as small as 250 to display correctly. I used media queries for this.
+___

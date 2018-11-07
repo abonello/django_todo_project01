@@ -1,3 +1,27 @@
 .striker {
     text-decoration: line-through;
 }
+
+.delete_text,
+.cross_text {
+    /* visibility: unset; */
+    display: inline;
+}
+.delete_X,
+.cross_X {
+    /* visibility: hidden; */
+    display: none;
+}
+
+@media only screen and (max-width: 350px) {
+    .delete_text,
+    .cross_text {
+        /* visibility: hidden; */
+        display: none;
+    }
+    .delete_X,
+    .cross_X {
+        /* visibility: unset; */
+        display: inline;
+    }
+}

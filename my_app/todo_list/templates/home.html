@@ -20,22 +20,27 @@
         <table class="table table-bordered">
             <thead class="thead-dark">
                 <th>Item</th>
-                <th><center>Completed</center></th>
-                <th><center>Delete</center></th>
+                <th><center><span class="cross_text">Completed</span><span class="cross_X">&#x25CE;/&#x25EF;</span>
+                    </center></th>
+                <th><center><span class="delete_text">Delete</span><span class="delete_X">X</span></center></th>
             </thead>
             {% for item in todo_items %}
 
             {% if item.completed %}
                 <tr class="table-secondary">
                 <td class="striker">{{ item.item }}</td>
-                <td><center><a class="btn btn-secondary" href="{% url 'uncross' item.id %}">Uncross</a></center></td>
+                <td><center><a class="btn btn-secondary" href="{% url 'uncross' item.id %}"><span class="cross_text">Uncross</span><span class="cross_X">&#x25EF;</span>
+                    </a></center></td>
+                <!-- <td><center><a class="btn btn-secondary" href="{% url 'uncross' item.id %}">Uncross</a></center></td> -->
             {% else %}
                 <tr>
                 <td>{{ item.item }}</td>
-                <td><center><a class="btn btn-warning" href="{% url 'cross_off' item.id %}">Cross Off</a></center></td>
+                <td><center><a class="btn btn-warning" href="{% url 'cross_off' item.id %}"><span class="cross_text">Cross Off</span><span class="cross_X">&#x25C9;</span></a></center></td>
+                <!-- <td><center><a class="btn btn-warning" href="{% url 'cross_off' item.id %}">Cross Off</a></center></td> -->
             {% endif %}
                 
-                <td><center><a class="btn btn-danger" href="{% url 'delete' item.id %}">Delete</a>
+                <td><center><a class="btn btn-danger" href="{% url 'delete' item.id %}"><span class="delete_text">Delete</span><span class="delete_X">X</span>
+                    </a>
                     </center></td>
             </tr>
             
