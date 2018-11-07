@@ -651,3 +651,16 @@ Lastly, we need to prepare `home.html` to display the message. We will place thi
 
 We can style this message using bootstrap `alerts`.
 
+---
+
+We can create a check mark to close the message. Add a class of `alert-dismissable`.
+
+Then add the following code inside the alert div.
+```html
+<button class="close" data-dismiss="alert">
+    <small><sup>x</sup></small>
+</button>
+```
+---
+
+
