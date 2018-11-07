@@ -44,3 +44,16 @@ def uncross(request, item_id):
     item.save()
     messages.success(request, ('Item has been marked as not completed.'))
     return redirect('home')
+
+def edit(request, item_id):
+    if request.method == 'POST':
+        item = List.objects.get(pk=item_id)
+        form = ListForm(request.POST or None, instance=item)
+
+        if form.is_valid():
+            form.save()
+            messages.success(request, ('Item has been successfully edited.'))
+            return redirect('home')
+    else: 
+        item = List.objects.get(pk=item_id)
+        return render(request, 'edit.html', {'item': item})

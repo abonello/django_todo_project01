@@ -753,3 +753,18 @@ The html code in home.html
 
 Added code that will change the **Delete**, **Cross Off** and **Uncross** text to symbols for very small screens. This allows screens as small as 250 to display correctly. I used media queries for this.
 ___
+
+## Editing a list item
+
+In urls.py add a new path.
+```python
+path('edit/<item_id>', views.edit, name='edit'),
+```
+
+We need to create a new template. Call it `edit.html`.
+
+Create a function in `views.py` for this view.
+
+Create the edit template. The edit template need to have a hidden input field to keep track of the completed value otherwise its value will be set to false by default.
+
+---
